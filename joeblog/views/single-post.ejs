@@ -1,0 +1,186 @@
+<%- include ('header.ejs') %>
+
+
+    <!-- Page Header -->
+    <header class="page-header page-header-mini">
+        <h1 class="title"><%=data.title%></h1>
+        <ol class="breadcrumb pb-0">
+            <li class="breadcrumb-item"><a href="/">Home</a></li>
+            <li class="breadcrumb-item active" aria-current="page"><%=data.source%></li>
+        </ol>
+    </header>
+    <!-- End Of Page Header -->
+
+    <section class="container">
+        <div class="page-container">
+            <div class="page-content">
+                <div class="card">
+                    <div class="card-header pt-0">
+                        <h3 class="card-title mb-4"><%=data.title%></h3>
+                        <div class="blog-media mb-4">
+                            <img src="<%=data.imageUrl%>" alt="" class="w-100">
+                            <a href="#" class="badge badge-primary"><%=data.source%></a> 
+                        </div>  
+                        <small class="small text-muted">
+                            <a href="#" class="text-muted"><%=data.author%></a>
+                            <span class="px-2">·</span>
+                            <span><%=data.publishedAt%></span>
+                            <span class="px-2">·</span>
+                            <a href="#" class="text-muted">32 Comments</a>
+                        </small>
+                    </div>
+                    <div class="card-body border-top">
+                        <p class="my-3"><%=data.description%></p> 
+                        <p><%=data.content%></p>
+                    </div>
+                    
+                    <div class="card-footer">
+                         <h6 class="mt-5 mb-3 text-center"><a href="#" class="text-dark">Comments 4</a></h6>
+                        <hr>
+                        <% for(comment of comments){%>
+                        <div class="media">
+                            <img src="imgs/avatar-1.jpg" class="mr-3 thumb-sm rounded-circle" alt="...">
+                            <div class="media-body">
+                                <h6 class="mt-0"><%=comment.user.username %></h6>
+                                <p><%=comment.user_comment%></p>
+                            </div>
+                        </div>
+                    <%}%>
+                        <h6 class="mt-5 mb-3 text-center"><a href="#" class="text-dark">Write Your Comment</a></h6>
+                        <hr>
+                        <% if (isAuthenticated){ %>
+                        <form method="post" action="">
+                            <div class="form-row">
+                                <div class="col-12 form-group">
+                                    <textarea id="" cols="30" rows="10" class="form-control" placeholder="Enter Your Comment Here" name="comment"></textarea>
+                                </div>
+                        
+                                <div class="form-group col-12">
+                                    <input type="submit" class="btn btn-primary btn-block">Post Comment</input>
+                                </div>
+                            </div>
+                        </form>
+                  <% }%>
+                    </div>                  
+                </div> 
+
+                <h6 class="mt-5 text-center">Related Posts</h6>
+                <hr>
+                <div class="row"> 
+                    for(post of data){
+                            if(post.source)                      
+                    <div class="col-md-6 col-lg-4">
+                        <div class="card mb-5">
+                            <div class="card-header p-0">                                   
+                                <div class="blog-media">
+                                    <img src="imgs/blog-2.jpg" alt="" class="w-100">
+                                    <a href="#" class="badge badge-primary">#Placeat</a>        
+                                </div>  
+                            </div>
+                            <div class="card-body px-0">
+                                <h6 class="card-title mb-2"><a href="#" class="text-dark">Voluptates Corporis Placeat</a></h6>  
+                                <small class="small text-muted">January 20 2019 
+                                    <span class="px-2">-</span>
+                                    <a href="#" class="text-muted">34 Comments</a>
+                                </small>
+                            </div>                  
+                        </div>
+                    </div>
+                }
+                    
+                </div>
+            </div>
+            <!-- Sidebar -->
+            <div class="page-sidebar">
+                <h6 class=" ">Tags</h6>
+                <a href="javascript:void(0)" class="badge badge-primary m-1">#iusto</a>
+                <a href="javascript:void(0)" class="badge badge-primary m-1">#quibusdam</a>
+                <a href="javascript:void(0)" class="badge badge-primary m-1">#officia</a>
+                <a href="javascript:void(0)" class="badge badge-primary m-1">#animi</a>
+                <a href="javascript:void(0)" class="badge badge-primary m-1">#mollitia</a>
+                <a href="javascript:void(0)" class="badge badge-primary m-1">#quod</a>
+                <a href="javascript:void(0)" class="badge badge-primary m-1">#ipsa at</a>
+                <a href="javascript:void(0)" class="badge badge-primary m-1">#dolor</a>
+                <a href="javascript:void(0)" class="badge badge-primary m-1">#incidunt</a>
+                <a href="javascript:void(0)" class="badge badge-primary m-1">#possimus</a>
+    
+                <div class="ad-card d-flex text-center align-items-center justify-content-center mt-4">
+                    <span href="#" class="font-weight-bold">ADS</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="instagram-wrapper mt-5">
+        <div class="ig-id">
+            <a href="javascript:void(0)">Follow @joe_mitchell On Instagram</a>
+        </div>
+        <a href="javascript:void(0)" class="insta-item">
+            <img src="imgs/insta-1.jpg" alt="" class="w-100">
+            <div class="overlay">
+                <span>
+                    <i class="ti-heart"></i> 23
+                </span>
+                <span>
+                    <i class="ti-comment"></i> 12
+                </span>
+            </div>
+        </a>
+        <a href="javascript:void(0)" class="insta-item">
+            <img src="imgs/insta-2.jpg" alt="" class="w-100">
+            <div class="overlay">
+                <span>
+                    <i class="ti-heart"></i> 23
+                </span>
+                <span>
+                    <i class="ti-comment"></i> 12
+                </span>
+            </div>
+        </a>
+        <a href="javascript:void(0)" class="insta-item">
+            <img src="imgs/insta-3.jpg" alt="" class="w-100">
+            <div class="overlay">
+                <span>
+                    <i class="ti-heart"></i> 23
+                </span>
+                <span>
+                    <i class="ti-comment"></i> 12
+                </span>
+            </div>
+        </a>
+        <a href="javascript:void(0)" class="insta-item">
+            <img src="imgs/insta-4.jpg" alt="" class="w-100">
+            <div class="overlay">
+                <span>
+                    <i class="ti-heart"></i> 23
+                </span>
+                <span>
+                    <i class="ti-comment"></i> 12
+                </span>
+            </div>
+        </a>
+        <a href="javascript:void(0)" class="insta-item">
+            <img src="imgs/insta-5.jpg" alt="" class="w-100">
+            <div class="overlay">
+                <span>
+                    <i class="ti-heart"></i> 23
+                </span>
+                <span>
+                    <i class="ti-comment"></i> 12
+                </span>
+            </div>
+        </a>
+        <a href="javascript:void(0)" class="insta-item">
+            <img src="imgs/insta-6.jpg" alt="" class="w-100">
+            <div class="overlay">
+                <span>
+                    <i class="ti-heart"></i> 23
+                </span>
+                <span>
+                    <i class="ti-comment"></i> 12
+                </span>
+            </div>
+        </a>
+    </div>
+
+    <%- include ('footer.ejs') %>
